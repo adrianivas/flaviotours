@@ -1,0 +1,244 @@
+/* Custom styles for Flavio Tours */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --ft-white: #ffffff;
+  --ft-cream: #fff7e6;
+
+  --ft-brown-900: #3b240f;
+  --ft-brown-700: #6b3f16;
+
+  --ft-gold-500: #d4a017;
+  --ft-gold-600: #b8860b;
+
+  --ft-orange-500: #f28c28;
+  --ft-orange-600: #d97706;
+}
+
+/* Light theme: golden-brown / orange / white */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--ft-white);
+  color: var(--ft-brown-900);
+}
+
+/* Heading font utility */
+.heading-font {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+  
+  .float-animation,
+  .pulse-animation,
+  .shimmer,
+  .particles-bg::before {
+    animation: none;
+  }
+}
+
+/* Luxury gradient backgrounds: warm gold/orange accents */
+.luxury-bg {
+  background: linear-gradient(135deg, var(--ft-white), var(--ft-cream));
+}
+
+.luxury-bg-gold {
+  background: linear-gradient(135deg, var(--ft-white), rgba(212, 160, 23, 0.15), var(--ft-cream));
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for elements */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer effect for premium feel */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.45), transparent);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Luxury gold color palette */
+.text-gold {
+  color: var(--ft-gold-600);
+}
+
+.bg-gold {
+  background-color: var(--ft-gold-500);
+}
+
+.border-gold {
+  border-color: var(--ft-gold-500);
+}
+
+/* Hover effects with scale */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Override default form input rounding if needed */
+input, textarea {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.35);
+}
+
+/* Animated particles background */
+.particles-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.particles-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, rgba(212, 160, 23, 0.22) 1px, transparent 1px),
+    radial-gradient(circle, rgba(242, 140, 40, 0.16) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  animation: particleMove 20s linear infinite;
+  pointer-events: none;
+}
+
+/* Warm overlay on hero/featured sections (keeps existing background images) */
+.luxury-bg.particles-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 36, 15, 0.85), rgba(242, 140, 40, 0.40));
+  pointer-events: none;
+}
+
+.luxury-bg.particles-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+  Legacy accent overrides
+  The site contains many inline blue accent styles; override them globally
+  to match the golden/brown/orange theme without editing every HTML file.
+*/
+[style*="color: #0f172a"],
+[style*="color:#0f172a"] {
+  color: var(--ft-brown-900) !important;
+}
+
+[style*="background-color: #0f172a"],
+[style*="background-color:#0f172a"] {
+  background-color: var(--ft-brown-900) !important;
+}
+
+[style*="background-color: #0f172a"]:hover,
+[style*="background-color:#0f172a"]:hover {
+  background-color: var(--ft-brown-700) !important;
+}
+
+[style*="color: #0ea5e9"],
+[style*="color:#0ea5e9"],
+[style*="color: #0284c7"],
+[style*="color:#0284c7"],
+[style*="color: #38bdf8"],
+[style*="color:#38bdf8"] {
+  color: var(--ft-orange-500) !important;
+}
+
+[style*="border-color: #0ea5e9"],
+[style*="border-color:#0ea5e9"],
+[style*="border-color: #0284c7"],
+[style*="border-color:#0284c7"],
+[style*="border-color: #38bdf8"],
+[style*="border-color:#38bdf8"] {
+  border-color: var(--ft-gold-500) !important;
+}
+
+[style*="background-color: #0ea5e9"],
+[style*="background-color:#0ea5e9"],
+[style*="background-color: #0284c7"],
+[style*="background-color:#0284c7"],
+[style*="background-color: #38bdf8"],
+[style*="background-color:#38bdf8"] {
+  background-color: var(--ft-gold-500) !important;
+}
+
+[style*="background-color: #0ea5e9"]:hover,
+[style*="background-color:#0ea5e9"]:hover,
+[style*="background-color: #0284c7"]:hover,
+[style*="background-color:#0284c7"]:hover,
+[style*="background-color: #38bdf8"]:hover,
+[style*="background-color:#38bdf8"]:hover {
+  background-color: var(--ft-orange-500) !important;
+}
+
+[style*="color: #0b132b"],
+[style*="color:#0b132b"] {
+  color: var(--ft-brown-900) !important;
+}
+
+/* Override legacy blue gradients used for primary buttons */
+[style*="linear-gradient(135deg, #0ea5e9"],
+[style*="linear-gradient(135deg,#0ea5e9"],
+[style*="linear-gradient(135deg, #0284c7"],
+[style*="linear-gradient(135deg,#0284c7"] {
+  background: linear-gradient(135deg, var(--ft-gold-500) 0%, var(--ft-orange-500) 55%, var(--ft-brown-700) 100%) !important;
+}
+
+/* Footer: align with warm palette */
+footer.bg-gray-900 {
+  background-color: var(--ft-brown-900) !important;
+}
+
+footer.bg-gray-900 .text-gray-400,
+footer.bg-gray-900 .text-gray-500 {
+  color: rgba(255, 247, 230, 0.82) !important;
+}
+
+footer.bg-gray-900 .text-white {
+  color: var(--ft-white) !important;
+}
+
+@keyframes particleMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
